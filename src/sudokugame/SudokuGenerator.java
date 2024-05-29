@@ -78,7 +78,7 @@ public class SudokuGenerator {
 
     private static void removeDigits(SudokuPuzzle puzzle) {
         Random random = new Random();
-        int cellsToRemove = 35;  // number of cells to be empty
+        int cellsToRemove = 40;  // number of cells to be empty
         while (cellsToRemove != 0) {
             int i = random.nextInt(puzzle.getNumRows());
             int j = random.nextInt(puzzle.getNumColumns());
