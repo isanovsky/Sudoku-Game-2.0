@@ -4,12 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0330bf4e-987b-4d9c-9f25-17436b0c41d5" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sudokugame/SudokuFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sudokugame/SudokuFrame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sudokugame/SudokuGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sudokugame/SudokuGenerator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sudokugame/SudokuPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sudokugame/SudokuPanel.java" afterDir="false" />
-    </list>
+    <list default="true" id="0330bf4e-987b-4d9c-9f25-17436b0c41d5" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -23,8 +18,21 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="PUSH_AUTO_UPDATE" value="true" />
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "isanovsky"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/isanovsky/Sudoku-Game-2.0.git",
+    "accountId": "b7227661-1dbe-47c8-9a96-6caa2bcaf1aa"
+  }
+}]]></component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 6
 }</component>
