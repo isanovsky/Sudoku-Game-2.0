@@ -9,6 +9,7 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
+
 public class SudokuPanel extends JPanel {
 
     private SudokuPuzzle puzzle;
@@ -16,12 +17,25 @@ public class SudokuPanel extends JPanel {
     private int selectedRow = -1;
     private int selectedCol = -1;
 
-    public SudokuPanel() {
+    public SudokuPanel(SudokuGenerator.Difficulty difficulty) {
         this.setPreferredSize(new Dimension(540, 450));
-        this.puzzle = SudokuGenerator.generateRandomSudoku(SudokuPuzzleType.NINEBYNINE);
-        this.preGenerated = new boolean[9][9];
+        startNewGame(difficulty);
+    }
+
+    public void startNewGame(SudokuGenerator.Difficulty difficulty) {
+        this.puzzle = SudokuGenerator.generateRandomSudoku(SudokuPuzzleType.NINEBYNINE, difficulty);
+        this.preGenerated = new boolean[puzzle.getNumRows()][puzzle.getNumColumns()];
         initializePreGenerated();
-        System.out.println(this.puzzle);
+        repaint();
+    }
+
+    private void initializePreGenerated() {
+        for (int row = 0; row < puzzle.getNumRows(); row++) {
+            for (int col = 0; col < puzzle.getNumColumns(); col++) {
+                preGenerated[row][col] = !puzzle.board[row][col].isEmpty();
+            }
+        }
+
 
         this.addMouseListener(new MouseAdapter() {
             @Override
@@ -56,23 +70,6 @@ public class SudokuPanel extends JPanel {
                 }
             });
         }
-    }
-
-    private void initializePreGenerated() {
-        for (int row = 0; row < 9; row++) {
-            for (int col = 0; col < 9; col++) {
-                preGenerated[row][col] = !puzzle.board[row][col].isEmpty();
-            }
-        }
-    }
-
-    public void newGame() {
-        this.puzzle = SudokuGenerator.generateRandomSudoku(SudokuPuzzleType.NINEBYNINE);
-        this.preGenerated = new boolean[9][9];
-        initializePreGenerated();
-        selectedRow = -1;
-        selectedCol = -1;
-        repaint();
     }
 
     public void giveHint() {
