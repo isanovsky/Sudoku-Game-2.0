@@ -5,7 +5,6 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-
 public class SudokuFrame extends JFrame {
     private SudokuPanel sudokuPanel;
     private SudokuGenerator.Difficulty currentDifficulty = SudokuGenerator.Difficulty.EASY;
@@ -48,6 +47,12 @@ public class SudokuFrame extends JFrame {
         JMenuItem hintItem = new JMenuItem("Get Hint");
         hintMenu.add(hintItem);
         menuBar.add(hintMenu);
+
+        //Create Credit Menu
+        JMenu helpMenu = new JMenu("Help");
+        JMenuItem creditItem = new JMenuItem("Credits");
+        helpMenu.add(creditItem);
+        menuBar.add(helpMenu);
 
         // Add Action Listeners
         newGameItem.addActionListener(new ActionListener() {
@@ -93,6 +98,17 @@ public class SudokuFrame extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 sudokuPanel.giveHint();
+            }
+        });
+
+        creditItem.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JOptionPane.showMessageDialog(SudokuFrame.this,
+                        "Sudoku Game\nDeveloped by:\n- Ichsan Ali Darmawan\n- Muhammad Hanan Zakian Farkhani\n- Rahmawati Wildatus Solekha " +
+                                "\n- Source Code https://github.com/isanovsky/Sudoku-Game-2.0",
+                        "Credits",
+                        JOptionPane.INFORMATION_MESSAGE);
             }
         });
 

@@ -8,8 +8,8 @@ import java.util.Random;
 public class SudokuGenerator {
 
         public enum Difficulty {
-            EASY(20),
-            MEDIUM(35),
+            EASY(25),
+            MEDIUM(40),
             HARD(50);
 
             private final int emptyCells;
