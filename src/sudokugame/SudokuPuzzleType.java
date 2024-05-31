@@ -9,7 +9,7 @@ public enum SudokuPuzzleType {
     private final int boxHeight;
     private final String[] validValues;
 
-    private SudokuPuzzleType(int rows, int columns, int boxWidth, int boxHeight, String[] validValues){
+    SudokuPuzzleType(int rows, int columns, int boxWidth, int boxHeight, String[] validValues){
         this.validValues = validValues;
         this.rows = rows;
         this.columns = columns;

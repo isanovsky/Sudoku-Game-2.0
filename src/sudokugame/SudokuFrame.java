@@ -5,51 +5,120 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-/**
- *
- * @author ICHSAN ENTERPRISE
- */
 public class SudokuFrame extends JFrame {
-
     private SudokuPanel sudokuPanel;
+    private SudokuGenerator.Difficulty currentDifficulty = SudokuGenerator.Difficulty.EASY;
 
     public SudokuFrame() {
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.setTitle("Sudoku Game");
+        super("Sudoku Game");
 
-        // Create SudokuPanel and buttons
-        sudokuPanel = new SudokuPanel();
-        JButton newGameButton = new JButton("New Game");
-        JButton hintButton = new JButton("Hint");
+        // Initialize the Sudoku panel
+        sudokuPanel = new SudokuPanel(currentDifficulty);
+        add(sudokuPanel, BorderLayout.CENTER);
 
-        // Add action listener to the buttons
-        newGameButton.addActionListener(new ActionListener() {
+        // Create menu bar
+        JMenuBar menuBar = new JMenuBar();
+
+        // Create Game menu
+        JMenu gameMenu = new JMenu("Game");
+        JMenuItem newGameItem = new JMenuItem("New Game");
+        JMenuItem exitItem = new JMenuItem("Exit");
+        gameMenu.add(newGameItem);
+        gameMenu.addSeparator();
+        gameMenu.add(exitItem);
+        menuBar.add(gameMenu);
+
+        // Create Difficulty menu
+        JMenu difficultyMenu = new JMenu("Difficulty");
+        ButtonGroup difficultyGroup = new ButtonGroup();
+        JRadioButtonMenuItem easyItem = new JRadioButtonMenuItem("Easy", true);
+        JRadioButtonMenuItem mediumItem = new JRadioButtonMenuItem("Medium");
+        JRadioButtonMenuItem hardItem = new JRadioButtonMenuItem("Hard");
+        difficultyGroup.add(easyItem);
+        difficultyGroup.add(mediumItem);
+        difficultyGroup.add(hardItem);
+        difficultyMenu.add(easyItem);
+        difficultyMenu.add(mediumItem);
+        difficultyMenu.add(hardItem);
+        menuBar.add(difficultyMenu);
+
+        //Create Hint Menu
+        JMenu hintMenu = new JMenu("Hint");
+        JMenuItem hintItem = new JMenuItem("Get Hint");
+        hintMenu.add(hintItem);
+        menuBar.add(hintMenu);
+
+        //Create Credit Menu
+        JMenu helpMenu = new JMenu("Help");
+        JMenuItem creditItem = new JMenuItem("Credits");
+        helpMenu.add(creditItem);
+        menuBar.add(helpMenu);
+
+        // Add Action Listeners
+        newGameItem.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                sudokuPanel.newGame();
+                sudokuPanel.startNewGame(currentDifficulty);
             }
         });
 
-        hintButton.addActionListener(new ActionListener() {
+        exitItem.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                System.exit(0);
+            }
+        });
+
+        easyItem.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                currentDifficulty = SudokuGenerator.Difficulty.EASY;
+                sudokuPanel.startNewGame(currentDifficulty);
+                sudokuPanel.giveHint();
+            }
+        });
+
+        mediumItem.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                currentDifficulty = SudokuGenerator.Difficulty.MEDIUM;
+                sudokuPanel.startNewGame(currentDifficulty);
+            }
+        });
+
+        hardItem.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                currentDifficulty = SudokuGenerator.Difficulty.HARD;
+                sudokuPanel.startNewGame(currentDifficulty);
+            }
+        });
+
+        hintItem.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 sudokuPanel.giveHint();
             }
         });
 
-        // Create a panel to hold the buttons and the SudokuPanel
-        JPanel controlPanel = new JPanel();
-        controlPanel.setLayout(new BorderLayout());
-        JPanel buttonPanel = new JPanel();
-        buttonPanel.add(newGameButton);
-        buttonPanel.add(hintButton);
-        controlPanel.add(buttonPanel, BorderLayout.NORTH);
-        controlPanel.add(sudokuPanel, BorderLayout.CENTER);
+        creditItem.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JOptionPane.showMessageDialog(SudokuFrame.this,
+                        "Sudoku Game\nDeveloped by:\n- Ichsan Ali Darmawan\n- Muhammad Hanan Zakian Farkhani\n- Rahmawati Wildatus Solekha " +
+                                "\n- Source Code https://github.com/isanovsky/Sudoku-Game-2.0",
+                        "Credits",
+                        JOptionPane.INFORMATION_MESSAGE);
+            }
+        });
 
-        // Add control panel to the frame
-        this.add(controlPanel);
+        // Set the menu bar
+        setJMenuBar(menuBar);
 
-        this.pack();
-        this.setVisible(true);
+        // Frame settings
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setSize(600, 600);
+        setLocationRelativeTo(null);
+        setVisible(true);
     }
 }
