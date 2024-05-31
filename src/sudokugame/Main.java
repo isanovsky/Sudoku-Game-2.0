@@ -2,7 +2,7 @@ package sudokugame;
 
 /**
  *
- * @author ICHSAN
+ * @author ICHSAN ENTERPRISE
  */
 
 public class Main {
