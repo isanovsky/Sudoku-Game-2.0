@@ -18,7 +18,7 @@ public class SudokuMainMenu extends JFrame {
         JLabel jLabel1 = new JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Sudoku Game 3.0");
+        setTitle("Sudoku Game v2.0");
 
         jPanel1.setLayout(new java.awt.GridBagLayout());
 
