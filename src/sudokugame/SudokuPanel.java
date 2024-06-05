@@ -15,9 +15,12 @@ public class SudokuPanel extends JPanel {
     private boolean[][] preGenerated;
     private int selectedRow = -1;
     private int selectedCol = -1;
+    private int score = 0;
+    private final JLabel scoreLabel;
 
-    public SudokuPanel(SudokuGenerator.Difficulty difficulty) {
+    public SudokuPanel(SudokuGenerator.Difficulty difficulty, JLabel scoreLabel) {
         this.setPreferredSize(new Dimension(540, 450));
+        this.scoreLabel = scoreLabel;
         startNewGame(difficulty);
     }
 
@@ -34,7 +37,6 @@ public class SudokuPanel extends JPanel {
                 preGenerated[row][col] = !puzzle.board[row][col].isEmpty();
             }
         }
-
 
         this.addMouseListener(new MouseAdapter() {
             @Override
@@ -124,6 +126,8 @@ public class SudokuPanel extends JPanel {
 
     private void checkCompletion() {
         if (isPuzzleComplete() && isPuzzleValid()) {
+            score+=10;
+            scoreLabel.setText("Score: " + score);
             JOptionPane.showMessageDialog(this, "Congratulations! You have completed the puzzle!");
         }
     }
@@ -193,6 +197,17 @@ public class SudokuPanel extends JPanel {
             }
         }
         return true;
+    }
+
+    public void clearInputs() {
+        for (int row = 0; row < puzzle.getNumRows(); row++) {
+            for (int col = 0; col < puzzle.getNumColumns(); col++) {
+                if (!preGenerated[row][col]) {
+                    puzzle.board[row][col] = "";
+                }
+            }
+        }
+        repaint();
     }
 
     @Override
@@ -289,20 +304,19 @@ public class SudokuPanel extends JPanel {
                 }
             }
         }
-
         // Draw grid lines on top of everything
         for (int x = 0; x <= getWidth(); x += slotWidth) {
-            g2d.setColor(Color.BLACK);
+            g2d.setColor(Color.GRAY);
             g2d.drawLine(x, 0, x, getHeight());
         }
         for (int y = 0; y <= getHeight(); y += slotHeight) {
-            g2d.setColor(Color.BLACK);
+            g2d.setColor(Color.GRAY);
             g2d.drawLine(0, y, getWidth(), y);
         }
-
-        // Draw thicker lines for box boundaries
+        //Thicker Boundaries on each Boxes
         g2d.setStroke(new BasicStroke(2));
         for (int i = 0; i <= 9; i += 3) {
+            g2d.setColor(Color.BLACK);
             g2d.drawLine(i * slotWidth, 0, i * slotWidth, getHeight());
             g2d.drawLine(0, i * slotHeight, getWidth(), i * slotHeight);
         }
