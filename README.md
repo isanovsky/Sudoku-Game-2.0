@@ -5,7 +5,10 @@ This is the first program that i've created. It's a Sudoku Game. So, this game b
 - SudokuPanel Class
 - SudokuPuzzle Class
 - SudokuPuzzleType Class
-- SudokuGenerator Class.
+- SudokuGenerator Class
+- SudokuLauncher Class
+- SudokuMain Menu Class
+- BackgroundPanel Class
 
 The explanation of each classes are below :
 # SudokuFrame Class
@@ -50,7 +53,26 @@ The explanation of each classes are below :
   - Connections:
   Generates SudokuPuzzle instances with the specified difficulty for use by SudokuPanel.
   Utilizes SudokuPuzzleType to ensure the generated puzzles adhere to the correct format and rules.
-  
+# SudokuMainMenu Class
+  - Purpose: Created Main Menu of the Sudoku Game
+  - Responsibilities:
+  Provides a "New Game" and "Exit" Button and also the combo box for selecting difficulties
+  - Connections:
+  Linked up with SudokuFrame to execute the main Application.
+# SudokuLauncher Class
+  - Purpose: The main class of Sudoku Application.
+  - Responsibilities:
+  Initializes and displays the main game interface.
+  Execute the program to the SudokuMainMenu Class.
+  - Connections:
+  Uses SudokuMainMenu Class to display the UI of the Application
+# BackgroundPanel Class
+  - Purpose: initiate the background for the Main Menu
+  - Responsibilities
+    This class is responsible for import and place the image background for the SudokuMainMenu Class
+  - Connections
+    BackgroundPanel has a connection for the SudokuMainMenu which is generate the background image
+
 # Relationships and Workflow
 1. SudokuFrame initializes the game interface, including the menu bar and game panel.
 2. When the user starts a new game or changes difficulty, SudokuFrame instructs SudokuPanel to start a new game with the selected difficulty.
