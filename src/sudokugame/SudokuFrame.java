@@ -9,12 +9,13 @@ public class SudokuFrame extends JFrame {
     private SudokuPanel sudokuPanel;
     private SudokuGenerator.Difficulty currentDifficulty = SudokuGenerator.Difficulty.EASY;
 
-    public SudokuFrame() {
+    public SudokuFrame(SudokuGenerator.Difficulty difficulty) {
         super("Sudoku Game");
 
         // Initialize the Sudoku panel
-        sudokuPanel = new SudokuPanel(currentDifficulty);
+        sudokuPanel = new SudokuPanel(difficulty);
         add(sudokuPanel, BorderLayout.CENTER);
+
 
         // Create menu bar
         JMenuBar menuBar = new JMenuBar();
@@ -42,11 +43,8 @@ public class SudokuFrame extends JFrame {
         difficultyMenu.add(hardItem);
         menuBar.add(difficultyMenu);
 
-        //Create Hint Menu
-        JMenu hintMenu = new JMenu("Hint");
-        JMenuItem hintItem = new JMenuItem("Get Hint");
-        hintMenu.add(hintItem);
-        menuBar.add(hintMenu);
+        //Create Hint Button
+        JButton hintButton = new JButton("Hint");
 
         //Create Credit Menu
         JMenu helpMenu = new JMenu("Help");
@@ -94,7 +92,7 @@ public class SudokuFrame extends JFrame {
             }
         });
 
-        hintItem.addActionListener(new ActionListener() {
+        hintButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 sudokuPanel.giveHint();
@@ -112,9 +110,18 @@ public class SudokuFrame extends JFrame {
             }
         });
 
-        // Set the menu bar
+        //Set Menu Bar
         setJMenuBar(menuBar);
+        Panel controlPanel = new Panel();
+        controlPanel.setLayout(new BorderLayout());
+        JPanel buttonPanel = new JPanel();
+        buttonPanel.add(hintButton);
+        controlPanel.add(buttonPanel, BorderLayout.NORTH);
+        controlPanel.add(sudokuPanel, BorderLayout.CENTER);
 
+        this.add(controlPanel);
+
+        this.pack();
         // Frame settings
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(600, 600);
