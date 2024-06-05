@@ -11,7 +11,7 @@ public class SudokuFrame extends JFrame {
     private final JLabel scoreLabel;
 
     public SudokuFrame(SudokuGenerator.Difficulty difficulty) {
-        super("Sudoku Game");
+        super("Sudoku Game v2.0");
 
         // Initialize the Sudoku panel
         scoreLabel = new JLabel("Score: 0");
