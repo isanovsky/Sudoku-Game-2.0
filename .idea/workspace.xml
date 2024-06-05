@@ -5,12 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0330bf4e-987b-4d9c-9f25-17436b0c41d5" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/resources/imageBackground.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/sudokugame/BackgroundPanel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/sudokugame/SudokuMainMenu.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sudokugame/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sudokugame/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sudokugame/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sudokugame/SudokuGame.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/sudokugame/SudokuFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sudokugame/SudokuFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sudokugame/SudokuPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sudokugame/SudokuPanel.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,12 +50,13 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Application.Main.executor": "Run",
+    "Application.SudokuGame.executor": "Run",
     "Application.SudokuMainMenu.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "D:/Java Program/MySudokuGame/src/resources"
+    "last_opened_file_path": "D:/Java Program/MySudokuGame"
   }
 }]]></component>
   <component name="RecentsManager">
@@ -68,8 +67,8 @@
     </key>
   </component>
   <component name="RunManager">
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="sudokugame.Main" />
+    <configuration name="SudokuGame" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="sudokugame.SudokuGame" />
       <module name="MySudokuGame" />
       <extension name="coverage">
         <pattern>
@@ -83,7 +82,7 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Main" />
+        <item itemvalue="Application.SudokuGame" />
       </list>
     </recent_temporary>
   </component>

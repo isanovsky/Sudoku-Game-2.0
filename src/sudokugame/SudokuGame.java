@@ -1,11 +1,7 @@
 package sudokugame;
 
-/**
- *
- * @author ICHSAN ENTERPRISE
- */
+public class SudokuGame {
 
-public class Main {
     public static void main(String[] args) {
 
     }
