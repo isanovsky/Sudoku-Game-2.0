@@ -1,11 +1,17 @@
 package sudokugame;
 
 import javax.swing.*;
+import java.awt.*;
 
 public class SudokuMainMenu extends JFrame {
 
     public SudokuMainMenu() {
         initComponents();
+        Dimension screen = Toolkit.getDefaultToolkit().getScreenSize();
+        int x = screen.width / 2 - this.getSize().width / 2;
+        int y = screen.height / 2 - this.getSize().height / 2;
+
+        this.setLocation(x, y);
     }
 
     private void initComponents() {
