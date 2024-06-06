@@ -1,11 +1,17 @@
 package sudokugame;
 
 import javax.swing.*;
+import java.awt.*;
 
 public class SudokuMainMenu extends JFrame {
 
     public SudokuMainMenu() {
         initComponents();
+        Dimension screen = Toolkit.getDefaultToolkit().getScreenSize();
+        int x = screen.width / 2 - this.getSize().width / 2;
+        int y = screen.height / 2 - this.getSize().height / 2;
+
+        this.setLocation(x, y);
     }
 
     private void initComponents() {
@@ -18,7 +24,7 @@ public class SudokuMainMenu extends JFrame {
         JLabel jLabel1 = new JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Sudoku Game 3.0");
+        setTitle("Sudoku Game v2.0");
 
         jPanel1.setLayout(new java.awt.GridBagLayout());
 
@@ -109,25 +115,5 @@ public class SudokuMainMenu extends JFrame {
         // Create and show the Sudoku game frame
         new SudokuFrame(difficulty).setVisible(true);
         this.dispose();  // Close the main menu
-    }
-
-    public static void main(String[] args) {
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException |
-                 UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(SudokuMainMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new SudokuMainMenu().setVisible(true);
-            }
-        });
     }
 }

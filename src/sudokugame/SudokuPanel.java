@@ -221,24 +221,25 @@ public class SudokuPanel extends JPanel {
         int slotWidth = this.getWidth() / 9;
         int slotHeight = this.getHeight() / 9;
 
-        // Draw grid lines
-        for (int x = 0; x <= this.getWidth(); x += slotWidth) {
-            if ((x / slotWidth) % 3 == 0) {
-                g2d.setStroke(new BasicStroke(2));
-            } else {
-                g2d.setStroke(new BasicStroke(1));
+        // Define colors for each 3x3 box
+        Color[] boxColors = {
+                new Color(255, 235, 205), // Blanched Almond
+                new Color(255, 222, 173), // Navajo White
+                new Color(255, 248, 220), // Cornsilk
+                new Color(230, 230, 250), // Lavender
+                new Color(240, 255, 240), // Honeydew
+                new Color(255, 228, 225), // Misty Rose
+                new Color(255, 250, 240), // Floral White
+                new Color(240, 248, 255), // Alice Blue
+                new Color(248, 248, 255)  // Ghost White
+        };
+
+        // Fill each 3x3 box with different color
+        for (int boxRow = 0; boxRow < 3; boxRow++) {
+            for (int boxCol = 0; boxCol < 3; boxCol++) {
+                g2d.setColor(boxColors[boxRow * 3 + boxCol]);
+                g2d.fillRect(boxCol * 3 * slotWidth, boxRow * 3 * slotHeight, 3 * slotWidth, 3 * slotHeight);
             }
-            g2d.setColor(Color.BLACK);
-            g2d.drawLine(x, 0, x, this.getHeight());
-        }
-        for (int y = 0; y <= this.getHeight(); y += slotHeight) {
-            if ((y / slotHeight) % 3 == 0) {
-                g2d.setStroke(new BasicStroke(2));
-            } else {
-                g2d.setStroke(new BasicStroke(1));
-            }
-            g2d.setColor(Color.BLACK);
-            g2d.drawLine(0, y, this.getWidth(), y);
         }
 
         // Highlight selected cell
@@ -255,8 +256,6 @@ public class SudokuPanel extends JPanel {
                 String value = puzzle.board[row][col];
                 if (!value.isEmpty()) {
                     if (preGenerated[row][col]) {
-                        g2d.setColor(new Color(200, 200, 200)); // Darker background for pre-generated cells
-                        g2d.fillRect(col * slotWidth, row * slotHeight, slotWidth, slotHeight);
                         g2d.setColor(Color.BLACK);
                     } else {
                         g2d.setColor(Color.BLACK);
@@ -269,6 +268,7 @@ public class SudokuPanel extends JPanel {
                 }
             }
         }
+
         // Highlight duplicates
         g2d.setColor(new Color(255, 0, 0, 100)); // Semi-transparent red
         for (int row = 0; row < 9; row++) {
@@ -304,6 +304,7 @@ public class SudokuPanel extends JPanel {
                 }
             }
         }
+
         // Draw grid lines on top of everything
         for (int x = 0; x <= getWidth(); x += slotWidth) {
             g2d.setColor(Color.GRAY);
@@ -313,7 +314,8 @@ public class SudokuPanel extends JPanel {
             g2d.setColor(Color.GRAY);
             g2d.drawLine(0, y, getWidth(), y);
         }
-        //Thicker Boundaries on each Boxes
+
+        // Thicker Boundaries on each Boxes
         g2d.setStroke(new BasicStroke(2));
         for (int i = 0; i <= 9; i += 3) {
             g2d.setColor(Color.BLACK);

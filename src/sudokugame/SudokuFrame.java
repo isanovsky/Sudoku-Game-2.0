@@ -6,13 +6,12 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class SudokuFrame extends JFrame {
-    private SudokuPanel sudokuPanel;
+    private final SudokuPanel sudokuPanel;
     private SudokuGenerator.Difficulty currentDifficulty = SudokuGenerator.Difficulty.EASY;
-    private int score = 0;
-    private JLabel scoreLabel;
+    private final JLabel scoreLabel;
 
     public SudokuFrame(SudokuGenerator.Difficulty difficulty) {
-        super("Sudoku Game");
+        super("Sudoku Game v2.0");
 
         // Initialize the Sudoku panel
         scoreLabel = new JLabel("Score: 0");
@@ -157,7 +156,6 @@ public class SudokuFrame extends JFrame {
     }
 
     private void resetScore() {
-        score = 0;
         scoreLabel.setText("Score: 0");
     }
 }

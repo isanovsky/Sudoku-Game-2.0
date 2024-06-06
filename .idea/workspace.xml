@@ -6,8 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="0330bf4e-987b-4d9c-9f25-17436b0c41d5" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sudokugame/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sudokugame/SudokuGame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sudokugame/SudokuFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sudokugame/SudokuFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sudokugame/SudokuMainMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sudokugame/SudokuMainMenu.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/sudokugame/SudokuPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sudokugame/SudokuPanel.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -51,12 +50,13 @@
   "keyToString": {
     "Application.Main.executor": "Run",
     "Application.SudokuGame.executor": "Run",
+    "Application.SudokuLauncher.executor": "Run",
     "Application.SudokuMainMenu.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "D:/Java Program/MySudokuGame"
+    "last_opened_file_path": "D:/Java Program/MySudokuGame/src/resources"
   }
 }]]></component>
   <component name="RecentsManager">
@@ -67,8 +67,8 @@
     </key>
   </component>
   <component name="RunManager">
-    <configuration name="SudokuGame" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="sudokugame.SudokuGame" />
+    <configuration name="SudokuLauncher" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="sudokugame.SudokuLauncher" />
       <module name="MySudokuGame" />
       <extension name="coverage">
         <pattern>
@@ -82,7 +82,7 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.SudokuGame" />
+        <item itemvalue="Application.SudokuLauncher" />
       </list>
     </recent_temporary>
   </component>
