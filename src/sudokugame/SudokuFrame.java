@@ -111,7 +111,11 @@ public class SudokuFrame extends JFrame {
         creditItem.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                // Implement credit display functionality here
+                JOptionPane.showMessageDialog(SudokuFrame.this,
+                        "Sudoku Game\nDeveloped by:\n- Ichsan Ali Darmawan\n- Muhammad Hanan Zakian Farkhani\n- Rahmawati Wildatus Solekha " +
+                                "\n- Source Code https://github.com/isanovsky/Sudoku-Game-2.0",
+                        "Credits",
+                        JOptionPane.INFORMATION_MESSAGE);
             }
         });
 
