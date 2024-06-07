@@ -8,27 +8,72 @@ import java.awt.event.MouseEvent;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class SudokuPanel extends JPanel {
-
     private SudokuPuzzle puzzle;
     private boolean[][] preGenerated;
     private int selectedRow = -1;
     private int selectedCol = -1;
-    private int score = 0;
-    private final JLabel scoreLabel;
+    private final JLabel timerLabel;
+    private Timer timer;
+    private int secondsElapsed;
+    private boolean timerRunning;
 
-    public SudokuPanel(SudokuGenerator.Difficulty difficulty, JLabel scoreLabel) {
+    public SudokuPanel(SudokuGenerator.Difficulty difficulty, JLabel timerLabel) {
         this.setPreferredSize(new Dimension(540, 450));
-        this.scoreLabel = scoreLabel;
+        this.timerLabel = timerLabel;
+        this.timerRunning = false;
+        // Initialize the Sudoku grid and other components
         startNewGame(difficulty);
     }
 
     public void startNewGame(SudokuGenerator.Difficulty difficulty) {
+        stopTimer();
         this.puzzle = SudokuGenerator.generateRandomSudoku(SudokuPuzzleType.NINEBYNINE, difficulty);
         this.preGenerated = new boolean[puzzle.getNumRows()][puzzle.getNumColumns()];
         initializePreGenerated();
+        startTimer();
         repaint();
+    }
+
+    private void startTimer() {
+        secondsElapsed = 0;
+        timerLabel.setText(formatTime(secondsElapsed));
+        timer = new Timer();
+        timerRunning = true;
+
+        TimerTask task = new TimerTask() {
+            @Override
+            public void run() {
+                SwingUtilities.invokeLater(() -> {
+                    if (timerRunning) {
+                        secondsElapsed++;
+                        timerLabel.setText(formatTime(secondsElapsed));
+                    }
+                });
+            }
+        };
+        timer.scheduleAtFixedRate(task, 1000, 1000);
+    }
+
+    private void stopTimer() {
+        if (timer != null) {
+            timer.cancel();
+        }
+        timerRunning = false;
+    }
+
+    public void resetTimer() {
+        stopTimer();
+        startTimer();
+    }
+
+    private String formatTime(int seconds) {
+        int minutes = seconds / 60;
+        int remainingSeconds = seconds % 60;
+        return String.format("Time: %02d:%02d", minutes, remainingSeconds);
     }
 
     private void initializePreGenerated() {
@@ -91,7 +136,7 @@ public class SudokuPanel extends JPanel {
 
     private String findHintValue(int row, int col) {
         for (String value : puzzle.getVALIDVALUES()) {
-            if (!puzzle.numInRow(row, value) && !puzzle.numInCol(col, value) && !puzzle.numInBox(row, col, value)) {
+            if (puzzle.numInRow(row, value) && puzzle.numInCol(col, value) && puzzle.numInBox(row, col, value)) {
                 puzzle.makeMove(row, col, value);
                 if (isSolvable(puzzle)) {
                     return value;
@@ -108,7 +153,7 @@ public class SudokuPanel extends JPanel {
             for (int col = 0; col < puzzle.getNumColumns(); col++) {
                 if (puzzle.board[row][col].isEmpty()) {
                     for (String value : puzzle.getVALIDVALUES()) {
-                        if (!puzzle.numInRow(row, value) && !puzzle.numInCol(col, value) && !puzzle.numInBox(row, col, value)) {
+                        if (puzzle.numInRow(row, value) && puzzle.numInCol(col, value) && puzzle.numInBox(row, col, value)) {
                             puzzle.makeMove(row, col, value);
                             if (isSolvable(puzzle)) {
                                 puzzle.makeMove(row, col, ""); // undo move
@@ -126,8 +171,7 @@ public class SudokuPanel extends JPanel {
 
     private void checkCompletion() {
         if (isPuzzleComplete() && isPuzzleValid()) {
-            score+=10;
-            scoreLabel.setText("Score: " + score);
+            stopTimer();
             JOptionPane.showMessageDialog(this, "Congratulations! You have completed the puzzle!");
         }
     }
