@@ -17,7 +17,7 @@ public class SudokuMainMenu extends JFrame {
     private void initComponents() {
         java.awt.GridBagConstraints gridBagConstraints;
 
-        JPanel jPanel1 = new BackgroundPanel("src/resources/imageBackground.png");
+        JPanel jPanel1 = new BackgroundPanel("src/resources/imagebackground.png");
         JButton playGameButton = new JButton();
         JButton exitButton = new JButton();
         JComboBox<String> difficultiesBox = new JComboBox<>();
@@ -81,7 +81,7 @@ public class SudokuMainMenu extends JFrame {
         gridBagConstraints.gridy = 0;
         gridBagConstraints.ipadx = 572;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(300, 6, 0, 6);
+        gridBagConstraints.insets = new java.awt.Insets(350, 6, 0, 6);
         jPanel1.add(jLabel1, gridBagConstraints);
 
         getContentPane().add(jPanel1, java.awt.BorderLayout.CENTER);

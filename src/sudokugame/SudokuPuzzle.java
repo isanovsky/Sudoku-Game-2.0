@@ -66,21 +66,21 @@ public class SudokuPuzzle {
         if (row <= this.ROWS){
             for (int col = 0; col < this.COLUMNS; col++) {
                 if (this.board[row][col].equals(value)){
-                    return true;
+                    return false;
                 }
             }
         }
-        return false;
+        return true;
     }
     public boolean numInCol(int col, String value){
         if (col <= this.COLUMNS){
             for (int row = 0; row < this.ROWS; row++) {
                 if (this.board[row][col].equals(value)){
-                    return true;
+                    return false;
                 }
             }
         }
-        return false;
+        return true;
     }
     public boolean numInBox(int row, int col, String value){
         if (inRange(row, col)){
@@ -91,12 +91,12 @@ public class SudokuPuzzle {
             for (int r = startingRow; r <= (startingRow + this.BOXHEIGHT) - 1 ; r++) {
                 for (int c = startingCol; c <= (startingCol + this.BOXWIDTH) - 1; c++) {
                     if (this.board[r][c].equals(value)){
-                        return true;
+                        return false;
                     }
                 }
             }
         }
-        return false;
+        return true;
     }
 
     private boolean inRange(int row, int col) {

@@ -16,10 +16,6 @@ public class SudokuLauncher {
             java.util.logging.Logger.getLogger(SudokuMainMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
 
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new SudokuMainMenu().setVisible(true);
-            }
-        });
+        java.awt.EventQueue.invokeLater(() -> new SudokuMainMenu().setVisible(true));
     }
 }

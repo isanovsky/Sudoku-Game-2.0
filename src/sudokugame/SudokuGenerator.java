@@ -90,7 +90,7 @@ public class SudokuGenerator {
         }
 
         private static boolean isSafe(SudokuPuzzle puzzle, int i, int j, String num) {
-            return !puzzle.numInRow(i, num) && !puzzle.numInCol(j, num) && !puzzle.numInBox(i, j, num);
+            return puzzle.numInRow(i, num) && puzzle.numInCol(j, num) && puzzle.numInBox(i, j, num);
         }
 
         private static void removeDigits(SudokuPuzzle puzzle, int numEmptyCells) {
