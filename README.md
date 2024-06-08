@@ -1,6 +1,13 @@
 ﻿# Sudoku-Game-2.0
 
-This is the first program that i've created. It's a Sudoku Game. So, this game basically for the final project of my college subject "Algorithm and Programming 2". This game created using Java Language. There are 6 classes in src package, there are :
+This is the first program that i've created. It's a Sudoku Game. So, this game basically for the final project of my college subject "Algorithm and Programming 2". This game created using Java Language. Here are the preview of the Game
+# Main Menu Preview
+![image](https://github.com/isanovsky/Sudoku-Game-2.0/assets/69060626/31dd2afe-5364-4fd9-b837-bc50e7d49d9d)
+# Gameplay Preview
+![image](https://github.com/isanovsky/Sudoku-Game-2.0/assets/69060626/231e9f64-f9d4-46f9-8052-4ad8d50178f6)
+
+
+There are 8 classes in src package, there are :
 - SudokuFrame Class
 - SudokuPanel Class
 - SudokuPuzzle Class
