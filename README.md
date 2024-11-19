@@ -1,6 +1,6 @@
 ﻿# Sudoku-Game-2.0
 
-This is the first program that i've created. It's a Sudoku Game. So, this game basically for the final project of my college subject "Algorithm and Programming 2". This game created using Java Language. Here are the preview of the Game
+This is the first program that i've created. It's a Sudoku Game. This game created using Java Language. Here are the preview of the Game and detailed informatiion about the game.
 # Main Menu Preview
 ![imageBackground](https://github.com/user-attachments/assets/db2f16cc-52ef-4e08-afa4-e0489fbc6a7c)
 
