@@ -2,7 +2,8 @@
 
 This is the first program that i've created. It's a Sudoku Game. This game created using Java Language. Here are the preview of the Game and detailed informatiion about the game.
 # Main Menu Preview
-![imageBackground](https://github.com/user-attachments/assets/db2f16cc-52ef-4e08-afa4-e0489fbc6a7c)
+![image](https://github.com/user-attachments/assets/3430abf2-18f5-4a7c-bcf3-100668a709b4)
+
 
 # Gameplay Preview
 ![image](https://github.com/isanovsky/Sudoku-Game-2.0/assets/69060626/231e9f64-f9d4-46f9-8052-4ad8d50178f6)
